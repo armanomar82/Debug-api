@@ -4,6 +4,7 @@ const cors               = require('cors')
 const morgan             = require('morgan');
 const rateLimit          = require('express-rate-limit'); 
 const cookieParser       = require('cookie-parser')
+const compression        = require('compression')
 const hpp                = require('hpp');
 const helmet             = require('helmet');
 const mongoSanitize      = require('express-mongo-sanitize');
@@ -67,10 +68,10 @@ app.use(express.static(path.join(__dirname, 'public')));
     app.all('*', (req, res, next) => {
         next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
     });
-
+    
     //4 - GLOBAL HANDLE ERROR MIDDLEWARES
-
     app.use(globalErrorHandler);
-
+    //5 - compression  MIDDLEWARES
+    app.use(compression());
 
     module.exports = app;

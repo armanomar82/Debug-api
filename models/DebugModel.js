@@ -83,14 +83,14 @@ const debugSchema = new mongoose.Schema(
     });
 
     debugSchema.pre('save', function(next) {
-        console.log('Will save document...');
+        //console.log('Will save document...');
         next();
     });
 
-    debugSchema.post(/^find/, function(docs, next) {
-        console.log(`Query took ${Date.now() - this.start} milliseconds!`);
-        next();
-    });
+    // debugSchema.post(/^find/, function(docs, next) {
+    //     console.log(`Query took ${Date.now() - this.start} milliseconds!`);
+    //     next();
+    // });
 
 const Debug = mongoose.model('Debug', debugSchema);
 
