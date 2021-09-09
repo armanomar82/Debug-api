@@ -4,7 +4,8 @@
   "description": "depug project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "debug"
@@ -31,5 +32,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.9"
+  },
+  "engines":{
+    "node":">=v14.17.4"
   }
 }
